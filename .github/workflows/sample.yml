@@ -1,17 +1,12 @@
-name: Pravalika-reddy
-
-on: push
-
-jobs: 
-  super-lint:
-    name: lint code base
+name: learn-github-actions
+on: [push]
+jobs:
+  check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        
-      - name: Run-Checkout code
-        uses: github/super-linter@v3
-        env:
-           DEFAULT_BRANCH: main
-           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: npm install -g bats
+      - run: bats -v
