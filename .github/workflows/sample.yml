@@ -9,8 +9,6 @@ jobs:
       
       - name: Run Super-linter
       - uses: actions/super-linter@v3
-        env: 
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+   
           
       
